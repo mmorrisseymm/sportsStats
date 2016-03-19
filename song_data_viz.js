@@ -92,7 +92,7 @@ function initMyVis(teamName, stats, type){
       }   
       var value = graphData[myYear][teamName][stats];
 
-      //get the 2nd stat for the chart
+      //get the 2nd stat for the chart - make sure to provide a full date 
       var date = year + "-01-01";
       var res = graphData[myYear][teamName].championship;
 
