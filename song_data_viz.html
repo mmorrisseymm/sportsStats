@@ -1,0 +1,101 @@
+<head>
+  <title>Boston Sports Team</title>
+  <script src="vis.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  {{> header}}
+  {{> song_viz}}
+</div>	
+</body>
+
+<template name="header">
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+       <!-- Start collapsed navbar -->
+       <a href="/" class="navbar-brand">Boston Sports Teams Data Visualation</a>
+          <div class="navbar-header">
+             <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#main_navbar"
+              aria-expanded="false">
+              Open / Close Navigation
+             </button>
+          </div><!-- /End collapsed navbar -->
+
+           <!-- Start un-collapsed navbar -->
+          <div class="collapse navbar-collapse" id="main_navbar">
+            <ul class="nav navbar-nav navbar-left">
+              <li>
+                <a href="/">Analysis</a>
+              </li>
+            </ul>
+         </div> <!-- /End uncollapsed navbar -->
+    </div> <!--End Container-->
+  </nav>
+</template>
+
+
+
+
+<template name="song_viz">
+<div class="row">
+	<div class="col-md-12">
+			<!--{{> song_viz_controls}} -->
+			 {{> teams_stats_controls}}
+	</div>
+
+	<div class="col-md-12">
+			{{> song_vizjs}}
+	</div>
+</div>
+
+</template>
+
+
+<template name="teams_stats_controls">
+  	<form>
+		<!-- list of available single features -->
+		Select the team, stat, and chart you would like to see and then click show stats
+		<br>
+		<p><small>Data begins for all teams from 1960</small></p>
+		<select id="team-sel" class="js-select-team">
+			<option value="Bruins">Bruins</option>
+			<option value="Celtics">Celtics</option>
+			<option value="Patriots">Patriots</option>
+			<option value="Red Sox">Red Sox</option>
+		</select>
+
+		<select id="stat-sel" class="js-select-stats">
+			<option value="wins">Wins</option>
+			<option value="losses">Losses</option>
+			<option value="PF">Points For</option>
+			<option value="PA">Points Against</option>
+			<option value="winning%">Winning Percentage</option>
+			<option value="playoffs">Playoff Appearances</option>
+			<option value="conf_finals">Conference Final Apperances</option>
+			<option value="championship">Championships Won</option>
+		</select>
+
+		<select id="type-sel" class="js-select-type">
+			<option value="timeline">Timeline</option>
+			<option value="scatter">Scatter</option>
+			<option value="nodes">Stars</option>
+		</select>
+
+		<button class="btn js_show-stats">Show Stats</button>
+
+	</form>
+
+
+</template>
+
+
+<template name="song_vizjs">
+	<div id="visjs"></div>
+</template>
+
